@@ -21,8 +21,6 @@ def baseline_generation(dataset, prediction_col):
             predictions.append(tag_concat)
         elif prediction_col == "baseline_template":
             predictions.append(_apply_template(tag_concat))
-        elif prediction_col == "baseline_k2c":
-            predictions.append(nlp(tag_list))
     return predictions
 
 def inference_parsing(dataset, prediction_col):

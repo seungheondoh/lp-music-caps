@@ -23,7 +23,6 @@ setup(
         'evaluate==0.4.0',
         'bert_score==0.3.13',
         'rouge_score==0.1.2',
-        'opencv-python',
-        'keytotext'
+        'gradio==3.36.1'
     ]
 )
