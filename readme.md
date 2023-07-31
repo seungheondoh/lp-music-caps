@@ -1,7 +1,6 @@
 # :sound: LP-MusicCaps: LLM-Based Pseudo Music Captioning
 
-[![Demo Video](https://i3.ytimg.com/vi/ezwYVaiC-AM/maxresdefault.jpg)](https://youtu.be/ezwYVaiC-AM)
-
+[![Demo Video](https://i.imgur.com/cgi8NsD.jpg)](https://youtu.be/ezwYVaiC-AM)
 
 This is a implementation of [LP-MusicCaps: LLM-Based Pseudo Music Captioning](#). This project aims to generate captions for music. 1) Tag-to-Caption: Using existing tags, We leverage the power of OpenAI's GPT-3.5 Turbo API to generate high-quality and contextually relevant captions based on music tag. 2) Audio-to-Caption: Using music-audio and pseudo caption pairs, we train a cross-model encoder-decoder model for end-to-end music captioning
 
@@ -10,15 +9,24 @@ This is a implementation of [LP-MusicCaps: LLM-Based Pseudo Music Captioning](#)
 > To appear ISMIR 2023   
 
 
-- **[Tag-to-Caption: LLM Captioning](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/llm_captioning)**: Generate caption from given tag input.
-- **[Audio-to-Caption: Music Captioning](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/music_captioning)**: Generate caption from given audio.
-- [pre-trained models](https://huggingface.co/seungheondoh/lp-music-caps), [music-pseudo caption dataset](https://huggingface.co/datasets/seungheondoh/LP-MusicCaps-MSD) and the [demo](https://huggingface.co/spaces/seungheondoh/LP-Music-Caps-demo) are available online for future research.
+## TL;DR
 
 
 <p align = "center">
 <img src = "https://i.imgur.com/2LC0nT1.png">
 </p>
 
+- **[1.Tag-to-Caption: LLM Captioning](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/llm_captioning)**: Generate caption from given tag input.
+- **[2.Audio-to-Caption: Pretrain Captioning Model](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/music_captioning)**: Generate pseudo caption from given audio.
+- **[3.Audio-to-Caption: Transfer Captioning Model](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/music_captioning/transfer.py)**: Generate human level caption from given audio.
+
+## Open Source Material
+
+- [pre-trained models](https://huggingface.co/seungheondoh/lp-music-caps) 
+- [music-pseudo caption dataset](https://huggingface.co/datasets/seungheondoh/LP-MusicCaps-MSD)
+- [demo](https://huggingface.co/spaces/seungheondoh/LP-Music-Caps-demo) 
+
+are available online for future research.
 
 
 ## Installation
@@ -68,15 +76,17 @@ python captioning.py --audio_path ../../dataset/samples/orchestra.wav
 ```
 
 ## Re-Implementation
-
+Checking `lpmc/llm_captioning` and `lpmc/music_captioning`
 
 ### License
 This project is under the CC-BY-NC 4.0 license. See LICENSE for details.
 
-
 ### Acknowledgement
 We would like to thank the [WavCaps](https://github.com/XinhaoMei/WavCaps) for audio-captioning training code and [deezer-playntell](https://github.com/deezer/playntell) for contents based captioning evaluation protocal.
 
-
 ### Citation
 Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follow.
+
+```
+Update soon
+```
