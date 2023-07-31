@@ -26,16 +26,19 @@ This is a implementation of [LP-MusicCaps: LLM-Based Pseudo Music Captioning](#)
 - [music-pseudo caption dataset](https://huggingface.co/datasets/seungheondoh/LP-MusicCaps-MSD)
 - [demo](https://huggingface.co/spaces/seungheondoh/LP-Music-Caps-demo) 
 
-are available online for future research.
+are available online for future research. example of dataset in [notebook](https://github.com/seungheondoh/lp-music-caps/blob/main/notebook/Dataset.ipynb)
 
 
 ## Installation
 To run this project locally, follow the steps below:
 
-```
-pip install -r requirements.txt
-pip install -e .
-```
+1. Install python and PyTorch:
+    - python==3.10
+    - torch==1.13.1 (Please install it according to your [CUDA version](https://pytorch.org/get-started/previous-versions/).)
+    
+2. Other requirements:
+    - pip install -e .
+
 
 ## Quick Start: Tag to Caption
 
