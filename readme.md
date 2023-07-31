@@ -70,9 +70,20 @@ python captioning.py --audio_path ../../dataset/samples/orchestra.wav
 ```
 
 ```
-{'text': "This is a symphonic orchestra playing  a piece that's riveting, thrilling and exciting. The peace would be suitable in a movie when something grand and impressive happens. There are clarinets, tubas, trumpets and french horns being played. The brass instruments help create that sense of a momentous occasion.", 'time': '0:00-10:00'}
-{'text': 'This is a classical music piece from a movie soundtrack. There is a clarinet playing the main melody while a brass section and a flute are playing the melody. The rhythmic background is provided by the acoustic drums. The atmosphere is epic and victorious. This piece could be used in the soundtrack of a historical drama movie during the scenes of an army marching towards the end.', 'time': '10:00-20:00'}
-{'text': 'This is a live performance of a classical music piece. There is a harp playing the melody while a horn is playing the bass line in the background. The atmosphere is epic. This piece could be used in the soundtrack of a historical drama movie during the scenes of an adventure video game.', 'time': '20:00-30:00'}
+{'text': "This is a symphonic orchestra playing  a piece that's riveting, thrilling and exciting. 
+The peace would be suitable in a movie when something grand and impressive happens. 
+There are clarinets, tubas, trumpets and french horns being played. The brass instruments help create that sense of a momentous occasion.", 
+'time': '0:00-10:00'}
+
+{'text': 'This is a classical music piece from a movie soundtrack. 
+There is a clarinet playing the main melody while a brass section and a flute are playing the melody. 
+The rhythmic background is provided by the acoustic drums. The atmosphere is epic and victorious. 
+This piece could be used in the soundtrack of a historical drama movie during the scenes of an army marching towards the end.', 
+'time': '10:00-20:00'}
+
+{'text': 'This is a live performance of a classical music piece. There is a harp playing the melody while a horn is playing the bass line in the background. 
+The atmosphere is epic. This piece could be used in the soundtrack of a historical drama movie during the scenes of an adventure video game.', 
+'time': '20:00-30:00'}
 ```
 
 ## Re-Implementation
