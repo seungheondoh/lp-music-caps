@@ -43,25 +43,13 @@ parser.add_argument('--world-size', default=1, type=int,
 parser.add_argument('--lr', '--learning-rate', default=1e-4, type=float,
                     metavar='LR', help='initial learning rate', dest='lr')
 parser.add_argument('--min_lr', default=1e-9, type=float)
-parser.add_argument('--rank', default=0, type=int,
-                    help='node rank for distributed training')
-parser.add_argument('--dist-url', default='tcp://localhost:12312', type=str,
-                    help='url used to set up distributed training') # env://
-parser.add_argument('--dist-backend', default='nccl', type=str,
-                    help='distributed backend') # 
 parser.add_argument('--seed', default=42, type=int,
                     help='seed for initializing training. ')
 parser.add_argument('--gpu', default=1, type=int,
                     help='GPU id to use.')
 parser.add_argument('--print_freq', default=50, type=int)
-parser.add_argument('--multiprocessing-distributed', action='store_true',
-                    help='Use multi-processing distributed training to launch '
-                         'N processes per node, which has N GPUs. This is the '
-                         'fastest way to use PyTorch for either single node or '
-                         'multi node data parallel training')
 parser.add_argument("--cos", default=True, type=bool)
 parser.add_argument("--label_smoothing", default=0.1, type=float)
-parser.add_argument("--eval_sample", default=64, type=int)
 parser.add_argument("--max_length", default=128, type=int)
 parser.add_argument("--num_beams", default=5, type=int)
 parser.add_argument("--model_type", default="last", type=str)
@@ -74,7 +62,7 @@ def main():
 def main_worker(args):
     test_dataset = MC_Dataset(
         data_path = args.data_dir,
-        split="TEST",
+        split="test",
         caption_type = "gt"
     )
     print(len(test_dataset))
@@ -88,7 +76,7 @@ def main_worker(args):
     eval(args, model, test_dataset, test_loader, args.num_beams)
  
 def eval(args, model, test_dataset, test_loader, num_beams=5):
-    save_dir = f"_exp/{args.framework}/{args.caption_type}/"
+    save_dir = f"exp/{args.framework}/{args.caption_type}/"
     config = OmegaConf.load(os.path.join(save_dir, "hparams.yaml"))
     model, save_epoch = load_pretrained(args, save_dir, model, mdp=config.multiprocessing_distributed)
     torch.cuda.set_device(args.gpu)

@@ -9,7 +9,7 @@ from re import sub
 from datasets import load_dataset
 from typing import Callable, List, Dict, Any
 from torch.utils.data import Dataset, DataLoader
-# from lpmc.utils.audio_utils import load_audio, STR_CH_FIRST
+from lpmc.utils.audio_utils import load_audio, STR_CH_FIRST
 
 class MC_Dataset(Dataset):
     def __init__(self, data_path, split, caption_type, sr=16000, duration=10, audio_enc="wav"):
@@ -22,10 +22,10 @@ class MC_Dataset(Dataset):
         self.get_split()
 
     def get_split(self):
-        if self.split == "TRAIN":
-            self.fl = [i for i in self.annotation['train'] if i['is_crawled']]
-        elif self.split == "TEST":
-            self.fl = [i for i in self.annotation['test'] if i['is_crawled']]
+        if self.split == "train":
+            self.fl = [i for i in self.annotation[self.split] if i['is_crawled']]
+        elif self.split == "test":
+            self.fl = [i for i in self.annotation[self.split] if i['is_crawled']]
         else:
             raise ValueError(f"Unexpected split name: {self.split}")
 

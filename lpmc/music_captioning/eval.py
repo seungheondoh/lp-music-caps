@@ -41,7 +41,7 @@ def main(args):
         "length_std": length_std
     }
     os.makedirs(os.path.join(args.save_dir, args.framework, args.caption_type), exist_ok=True)
-    with open(os.path.join(args.save_dir, args.framework, args.caption_type, f"results_temp_.json"), mode="w") as io:
+    with open(os.path.join(args.save_dir, args.framework, args.caption_type, f"results.json"), mode="w") as io:
         json.dump(results, io, indent=4)
     print(results)
     
