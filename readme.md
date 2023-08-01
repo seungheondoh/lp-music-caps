@@ -16,15 +16,15 @@ This is a implementation of [LP-MusicCaps: LLM-Based Pseudo Music Captioning](#)
 <img src = "https://i.imgur.com/2LC0nT1.png">
 </p>
 
-- **[1.Tag-to-Caption: LLM Captioning](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/llm_captioning)**: Generate caption from given tag input.
-- **[2.Audio-to-Caption: Pretrain Captioning Model](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/music_captioning)**: Generate pseudo caption from given audio.
-- **[3.Audio-to-Caption: Transfer Captioning Model](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/music_captioning/transfer.py)**: Generate human level caption from given audio.
+- Step 1.**[Tag-to-Caption: LLM Captioning](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/llm_captioning)**: Generate caption from given tag input.
+- Step 2.**[Pretrain Music Captioning Model](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/music_captioning)**: Generate pseudo caption from given audio.
+- Step 3.**[Transfer Music Captioning Model](https://github.com/seungheondoh/lp-music-caps/tree/main/lpmc/music_captioning/transfer.py)**: Generate human level caption from given audio.
 
 ## Open Source Material
 
-- [pre-trained models](https://huggingface.co/seungheondoh/lp-music-caps) 
-- [music-pseudo caption dataset](https://huggingface.co/datasets/seungheondoh/LP-MusicCaps-MSD)
-- [demo](https://huggingface.co/spaces/seungheondoh/LP-Music-Caps-demo) 
+- [Pre-trained model & Transfer model](https://huggingface.co/seungheondoh/lp-music-caps) 
+- [Music & pseudo-caption dataset](https://huggingface.co/datasets/seungheondoh/LP-MusicCaps-MSD)
+- [Huggingface demo](https://huggingface.co/spaces/seungheondoh/LP-Music-Caps-demo) 
 
 are available online for future research. example of dataset in [notebook](https://github.com/seungheondoh/lp-music-caps/blob/main/notebook/Dataset.ipynb)
 
