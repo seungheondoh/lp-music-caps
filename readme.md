@@ -2,9 +2,9 @@
 
 [![Demo Video](https://i.imgur.com/cgi8NsD.jpg)](https://youtu.be/ezwYVaiC-AM)
 
-This is a implementation of [LP-MusicCaps: LLM-Based Pseudo Music Captioning](#). This project aims to generate captions for music. 1) Tag-to-Caption: Using existing tags, We leverage the power of OpenAI's GPT-3.5 Turbo API to generate high-quality and contextually relevant captions based on music tag. 2) Audio-to-Caption: Using music-audio and pseudo caption pairs, we train a cross-model encoder-decoder model for end-to-end music captioning
+This is a implementation of [LP-MusicCaps: LLM-Based Pseudo Music Captioning](https://arxiv.org/abs/2307.16372). This project aims to generate captions for music. 1) Tag-to-Caption: Using existing tags, We leverage the power of OpenAI's GPT-3.5 Turbo API to generate high-quality and contextually relevant captions based on music tag. 2) Audio-to-Caption: Using music-audio and pseudo caption pairs, we train a cross-model encoder-decoder model for end-to-end music captioning
 
-> [**LP-MusicCaps: LLM-Based Pseudo Music Captioning**](#)   
+> [**LP-MusicCaps: LLM-Based Pseudo Music Captioning**](https://arxiv.org/abs/2307.16372)
 > SeungHeon Doh, Keunwoo Choi, Jongpil Lee, Juhan Nam   
 > To appear ISMIR 2023   
 
@@ -96,7 +96,7 @@ Checking `lpmc/llm_captioning` and `lpmc/music_captioning`
 This project is under the CC-BY-NC 4.0 license. See LICENSE for details.
 
 ### Acknowledgement
-We would like to thank the [WavCaps](https://github.com/XinhaoMei/WavCaps) for audio-captioning training code and [deezer-playntell](https://github.com/deezer/playntell) for contents based captioning evaluation protocal.
+We would like to thank the [WavCaps](https://github.com/XinhaoMei/WavCaps) for audio-captioning training code and [deezer-playntell](https://github.com/deezer/playntell) for contents based captioning evaluation protocal. We would like to thank OpenAI for providing the GPT-3.5 Turbo API, which powers this project.
 
 ### Citation
 Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follow.
