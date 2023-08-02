@@ -1,19 +1,13 @@
 import argparse
-import builtins
 import math
 import os
 import random
 import shutil
-import time
-import warnings
-import numpy as np
 import torch
-import torch.nn as nn
 import torch.backends.cudnn as cudnn
 import torch.optim
 import torch.utils.data
 from lpmc.music_captioning.datasets.mc import MC_Dataset
-from lpmc.music_captioning.datasets.msd import MSD_Balanced_Dataset
 from lpmc.music_captioning.model.bart import BartCaptionModel
 from lpmc.utils.train_utils import Logger, AverageMeter, ProgressMeter, EarlyStopping, save_hparams
 from mcb.utils.eval_utils import load_pretrained, print_model_params

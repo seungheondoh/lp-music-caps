@@ -1,12 +1,5 @@
 import argparse
-import builtins
-import math
 import os
-import json
-import random
-import shutil
-import time
-import warnings
 import numpy as np
 import torch
 import torch.nn as nn
@@ -18,12 +11,9 @@ import torch.multiprocessing as mp
 import torch.utils.data
 import torch.utils.data.distributed
 
-from lpmc.music_captioning.datasets.mc import MC_Dataset
 from lpmc.music_captioning.model.bart import BartCaptionModel
 from lpmc.utils.eval_utils import load_pretrained
 from lpmc.utils.audio_utils import load_audio, STR_CH_FIRST
-
-from tqdm import tqdm
 from omegaconf import OmegaConf
 
 parser = argparse.ArgumentParser(description='PyTorch MSD Training')

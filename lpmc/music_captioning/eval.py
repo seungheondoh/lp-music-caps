@@ -1,10 +1,7 @@
 import os
-import random
 import argparse
 import json
-import torch
 import numpy as np
-from tqdm import tqdm
 from datasets import load_dataset
 from lpmc.utils.metrics import bleu, meteor, rouge, bertscore, vocab_novelty, caption_novelty
 
