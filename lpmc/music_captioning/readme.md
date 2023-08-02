@@ -6,6 +6,9 @@ We used a cross-modal encoder-decoder transformer architecture.
 
 2. Following the BART architecture, our encoder and decoder both have 768 widths and 6 transformer blocks. The decoder processes tokenized text captions using transformer blocks with a multi-head attention module that includes a mask to hide future tokens for causality. The music and caption representations are fed into the cross-modal attention layer, and the head of the language model in the decoder predicts the next token autoregressively using the cross-entropy loss.
 
+- **Supervised Model** : [download link](https://huggingface.co/seungheondoh/lp-music-caps/resolve/main/supervised.pth)
+- **Pretrain Model** : [download link](https://huggingface.co/seungheondoh/lp-music-caps/resolve/main/pretrain.pth)
+- **Transfer Model** : [download link](https://huggingface.co/seungheondoh/lp-music-caps/resolve/main/transfer.pth)
 
 <p align = "center">
   <img src = "https://i.imgur.com/zsUmlcC.png" width="600">
@@ -13,27 +16,28 @@ We used a cross-modal encoder-decoder transformer architecture.
 
 ## 0. Quick Start
 ```bash
+# download pretrain model weight from huggingface
+
 wget https://huggingface.co/seungheondoh/lp-music-caps/resolve/main/supervised.pth -O exp/supervised/gt/last.pth
 wget https://huggingface.co/seungheondoh/lp-music-caps/resolve/main/transfer.pth -O exp/transfer/lp_music_caps/last.pth
 wget https://huggingface.co/seungheondoh/lp-music-caps/resolve/main/pretrain.pth -O exp/pretrain/lp_music_caps/last.pth
 python captioning.py --audio_path ../../dataset/samples/orchestra.wav
 ```
 
-```json
-{'text': "This is a symphonic orchestra playing  a piece that's riveting, thrilling and exciting. 
-The peace would be suitable in a movie when something grand and impressive happens. 
-There are clarinets, tubas, trumpets and french horns being played. The brass instruments help create that sense of a momentous occasion.", 
-'time': '0:00-10:00'}
-
-{'text': 'This is a classical music piece from a movie soundtrack. 
-There is a clarinet playing the main melody while a brass section and a flute are playing the melody. 
-The rhythmic background is provided by the acoustic drums. The atmosphere is epic and victorious. 
-This piece could be used in the soundtrack of a historical drama movie during the scenes of an army marching towards the end.', 
-'time': '10:00-20:00'}
-
-{'text': 'This is a live performance of a classical music piece. There is a harp playing the melody while a horn is playing the bass line in the background. 
-The atmosphere is epic. This piece could be used in the soundtrack of a historical drama movie during the scenes of an adventure video game.', 
-'time': '20:00-30:00'}
+```bash
+{
+  'text': "This is a symphonic orchestra playing  a piece that's riveting, thrilling and exciting. 
+          The peace would be suitable in a movie when something grand and impressive happens. 
+          There are clarinets, tubas, trumpets and french horns being played. The brass instruments help create that sense of a momentous occasion.", 
+  'time': '0:00-10:00'
+} 
+{
+  'text': 'This is a classical music piece from a movie soundtrack. 
+          There is a clarinet playing the main melody while a brass section and a flute are playing the melody. 
+          The rhythmic background is provided by the acoustic drums. The atmosphere is epic and victorious. 
+          This piece could be used in the soundtrack of a historical drama movie during the scenes of an army marching towards the end.', 
+'time': '10:00-20:00'
+}
 ```
 
 ## 1. Preprocessing audio with ffmpeg
