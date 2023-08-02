@@ -1,34 +1,58 @@
-# Audio-to-Caption Generation using Cross Modal Encoder-Decoder
+# Audio-to-Caption using Cross Modal Encoder-Decoder
+
+We used a cross-modal encoder-decoder transformer architecture. 
+
+1. Similar to Whisper, the encoder takes a log-mel spectrogram with six convolution layers with a filter width of 3 and the GELU activation function. With the exception of the first layer, each convolution layer has a stride of two. The output of the convolution layers is combined with the sinusoidal position encoding and then processed by the encoder transformer blocks. 
+
+2. Following the BART architecture, our encoder and decoder both have 768 widths and 6 transformer blocks. The decoder processes tokenized text captions using transformer blocks with a multi-head attention module that includes a mask to hide future tokens for causality. The music and caption representations are fed into the cross-modal attention layer, and the head of the language model in the decoder predicts the next token autoregressively using the cross-entropy loss.
 
 
 <p align = "center">
 <img src = "https://i.imgur.com/zsUmlcC.png">
 </p>
 
-## 1. Supervised Model
+## 1. Preprocessing audio with ffmpeg
 
-Download [MusicCaps audio](https://github.com/seungheondoh/music_caps_dl) or [MSD audio](https://github.com/SeungHeonDoh/msd-subsets) 
-
-if you hard to get audio please request to me
-- seungheondoh@kaist.ac.kr
+For fast training, we resample audio at 16000 sampling rate and save it as `.npy`.
 
 ```
-# train supervised baseline model
-python train.py --framework supervised --train_data mc --caption_type gt --warmup_epochs 1 --label_smoothing 0.1 --max_length 128 --batch-size 64 
+def _resample_load_ffmpeg(path: str, sample_rate: int, downmix_to_mono: bool) -> Tuple[np.ndarray, int]:
+    """
+    Decoding, downmixing, and downsampling by librosa.
+    Returns a channel-first audio signal.
 
-# inference caption
-python infer.py --framework supervised --train_data mc --caption_type gt --num_beams 5 --model_type last
+    Args:
+        path:
+        sample_rate:
+        downmix_to_mono:
 
-# eval
-python eval.py --framework supervised --caption_type gt
+    Returns:
+        (audio signal, sample rate)
+    """
+
+    def _decode_resample_by_ffmpeg(filename, sr):
+        """decode, downmix, and resample audio file"""
+        channel_cmd = '-ac 1 ' if downmix_to_mono else ''  # downmixing option
+        resampling_cmd = f'-ar {str(sr)}' if sr else ''  # downsampling option
+        cmd = f"ffmpeg -i \"{filename}\" {channel_cmd} {resampling_cmd} -f wav -"
+        p = subprocess.Popen(cmd, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        out, err = p.communicate()
+        return out
+
+    src, sr = sf.read(io.BytesIO(_decode_resample_by_ffmpeg(path, sr=sample_rate)))
+    return src.T, sr
 ```
 
+The code using `multiprocessing`` is as follows. We also provide preprocessing code for balanced data loading.
 
-## 1. Supervised Model
+```
+# multiprocessing resampling & bulid tag-to-track linked list for balanced data loading.
+python preprocessor.py
+```
 
-Download [MusicCaps audio](https://github.com/seungheondoh/music_caps_dl), if you hard to get audio please request to me
+## 2. Train & Eval Supervised Model (Baseline)
 
-- seungheondoh@kaist.ac.kr
+Download [MusicCaps audio](https://github.com/seungheondoh/music_caps_dl), if you hard to get audio please request for research purpose
 
 ```
 # train supervised baseline model
@@ -41,10 +65,9 @@ python infer.py --framework supervised --train_data mc --caption_type gt --num_b
 python eval.py --framework supervised --caption_type gt
 ```
 
-## 2. Pretrain, Transfer Learning
+## 3. Pretrain, Transfer Music Captioning Model (Proposed)
 
-Download MSD audio, if you hard to get audio please request to me
-- seungheondoh@kaist.ac.kr
+Download MSD audio, if you hard to get audio please request for research purpose
 
 ```
 # train pretrain model
