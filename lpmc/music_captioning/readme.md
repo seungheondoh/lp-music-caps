@@ -8,14 +8,14 @@ We used a cross-modal encoder-decoder transformer architecture.
 
 
 <p align = "center">
-<img src = "https://i.imgur.com/zsUmlcC.png">
+  <img src = "https://i.imgur.com/zsUmlcC.png" width="600">
 </p>
 
 ## 1. Preprocessing audio with ffmpeg
 
 For fast training, we resample audio at 16000 sampling rate and save it as `.npy`.
 
-```
+```python
 def _resample_load_ffmpeg(path: str, sample_rate: int, downmix_to_mono: bool) -> Tuple[np.ndarray, int]:
     """
     Decoding, downmixing, and downsampling by librosa.
