@@ -1,7 +1,6 @@
-framework: bart
+framework: transfer
 data_dir: ../../dataset
-train_data: msd_balence
-text_type: all
+text_type: gt
 arch: transformer
 workers: 8
 epochs: 100

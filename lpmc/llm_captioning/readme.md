@@ -2,6 +2,22 @@
 
 This project aims to generate captions for music using existing tags. We leverage the power of OpenAI's GPT-3.5 Turbo API to generate high-quality and contextually relevant captions based on music tags.
 
+## Installation
+To run this project locally, follow the steps below:
+
+```
+pip install -e
+# our exp version (date): openai-0.27.8, python-dotenv-1.0.0  (2023.04 ~ 2023.05)
+```
+
+Set up your OpenAI API credentials by creating a `.env` file in the root directory. Check [OpenAI API](https://openai.com/blog/openai-api) access and price first. Add the following lines and replace YOUR_API_KEY with your actual API key:
+
+```bash
+OPENAI_API_KEY=your_key_in_here
+api_host=0.0.0.0
+api_port=8088
+```
+
 ## Caption Generation from Existing Tag Dataset
 We have prepared randomly sampled 20 `tag-caption` pairs from [Music Caps](https://huggingface.co/datasets/google/MusicCaps). If you want to reproduce the 2.2 Miliion examples from the paper, download annotation data & track split from [MSD-ECALS](https://zenodo.org/record/7107130), [Magnatagatune-MTT](https://github.com/seungheondoh/msu-benchmark). 
 

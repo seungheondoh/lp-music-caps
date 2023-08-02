@@ -47,7 +47,7 @@ def main(args):
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--save_dir", default="./_exp", type=str)
+    parser.add_argument("--save_dir", default="./exp", type=str)
     parser.add_argument("--framework", default="supervised", type=str)
     parser.add_argument("--caption_type", default="gt", type=str)
     args = parser.parse_args()

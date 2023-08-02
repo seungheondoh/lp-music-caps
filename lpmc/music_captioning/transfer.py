@@ -20,9 +20,8 @@ from mcb.utils.eval_utils import load_pretrained, print_model_params
 from omegaconf import OmegaConf
 
 parser = argparse.ArgumentParser(description='PyTorch MSD Training')
-parser.add_argument('--framework', type=str, default="pretrain")
+parser.add_argument('--framework', type=str, default="transfer")
 parser.add_argument('--data_dir', type=str, default="../../dataset")
-parser.add_argument('--train_data', type=str, default="msd")
 parser.add_argument("--caption_type", default="lp_music_caps", type=str)
 parser.add_argument('--arch', default='transformer')
 parser.add_argument('-j', '--workers', default=8, type=int, metavar='N',
@@ -46,11 +45,7 @@ parser.add_argument('--gpu', default=1, type=int,
 parser.add_argument('--print_freq', default=10, type=int)
 parser.add_argument("--cos", default=True, type=bool)
 parser.add_argument("--label_smoothing", default=0.1, type=float)
-parser.add_argument("--use_early_stopping", default=False, type=bool)
-parser.add_argument("--eval_sample", default=64, type=int)
 parser.add_argument("--max_length", default=128, type=int)
-parser.add_argument("--transfer_option", default="all", type=str)
-parser.add_argument("--decoder_idx", default=5, type=int)
 
 def main():
     args = parser.parse_args()
@@ -74,7 +69,7 @@ def main_worker(args):
         max_length = args.max_length,
         label_smoothing = args.label_smoothing
     )
-    pretrain_dir = f"exp/{args.framework}/{args.caption_type}/"
+    pretrain_dir = f"exp/pretrain/{args.caption_type}/"
     config = OmegaConf.load(os.path.join(pretrain_dir, "hparams.yaml"))
     model, save_epoch = load_pretrained(args, pretrain_dir, model, model_types="last", mdp=config.multiprocessing_distributed)
     print_model_params(model)
