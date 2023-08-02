@@ -1,3 +1,5 @@
+### code reference: https://github.com/XinhaoMei/WavCaps/blob/master/captioning/models/bart_captioning.py
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

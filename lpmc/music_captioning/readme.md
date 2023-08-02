@@ -85,3 +85,7 @@ python eval.py --framework transfer --caption_type lp_music_caps
 
 ### License
 This project is under the CC-BY-NC 4.0 license. See LICENSE for details.
+
+
+### Acknowledgement
+We would like to thank the [Whisper](https://github.com/openai/whisper) for audio frontend, [WavCaps](https://github.com/XinhaoMei/WavCaps) for audio-captioning training code and [deezer-playntell](https://github.com/deezer/playntell) for contents based captioning evaluation protocal.
