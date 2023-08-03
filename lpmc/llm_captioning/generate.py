@@ -59,8 +59,8 @@ class OpenAIGpt:
                 "plural":"write a single sentence that summarize a song with the following attributes. Don't write artist name or album name.",
                 },
             "paraphrase": {
-                "singular":"write a song description sentence including the following single attribute. paraphraze paraphrasing is acceptable.",
-                "plural":"write a song description sentence including the following attributes. paraphraze paraphrasing is acceptable.",
+                "singular":"write a song description sentence including the following single attribute. creative paraphrasing is acceptable.",
+                "plural":"write a song description sentence including the following attributes. creative paraphrasing is acceptable.",
                 },
             "attribute_prediction": {
                 "singular":"write the answer as a python dictionary with new_attribute and description as keys. for new_attribute, write new attributes with high co-occurrence with the following single attribute. for description, write a song description sentence including the single attribute and new attribute.",
