@@ -97,7 +97,7 @@ Checking `lpmc/llm_captioning` and `lpmc/music_captioning`
 This project is under the CC-BY-NC 4.0 license. See LICENSE for details.
 
 ### Acknowledgement
-We would like to thank the [WavCaps](https://github.com/XinhaoMei/WavCaps) for audio-captioning training code and [deezer-playntell](https://github.com/deezer/playntell) for contents based captioning evaluation protocal. We would like to thank OpenAI for providing the GPT-3.5 Turbo API, which powers this project.
+We would like to thank the [WavCaps](https://github.com/XinhaoMei/WavCaps) for audio-captioning training code and [deezer-playntell](https://github.com/deezer/playntell) for contents based captioning evaluation protocol. We would like to thank OpenAI for providing the GPT-3.5 Turbo API, which powers this project.
 
 ### Citation
 Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follow.
