@@ -103,5 +103,10 @@ We would like to thank the [WavCaps](https://github.com/XinhaoMei/WavCaps) for a
 Please consider citing our paper in your publications if the project helps your research. BibTeX reference is as follow.
 
 ```
-Update soon
+@article{doh2023lp,
+  title={LP-MusicCaps: LLM-Based Pseudo Music Captioning},
+  author={Doh, SeungHeon and Choi, Keunwoo and Lee, Jongpil and Nam, Juhan},
+  journal={arXiv preprint arXiv:2307.16372},
+  year={2023}
+}
 ```
