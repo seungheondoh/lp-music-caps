@@ -2,7 +2,8 @@ import os
 import random
 from datasets import load_dataset
 from contextlib import contextmanager
-
+import multiprocessing
+import numpy as np
 import json
 from lpmc.utils.audio_utils import load_audio, STR_CH_FIRST
 from sklearn.preprocessing import MultiLabelBinarizer
@@ -60,13 +61,11 @@ def build_tag_to_track(msd_dataset, split):
 
 def main():
     msd_dataset = load_dataset("seungheondoh/LP-MusicCaps-MSD")
-    
     all_samples = []
     for split in ['train', 'valid', 'test']:
         if split != "test":
-            tag_to_track = build_tag_to_track(msd_dataset, split)
+            build_tag_to_track(msd_dataset, split)
         all_samples += msd_dataset[split]
-    
     with poolcontext(processes=multiprocessing.cpu_count()) as pool:
         pool.map(msd_resampler, all_samples)
     print("finish extract")
