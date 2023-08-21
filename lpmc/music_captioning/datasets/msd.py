@@ -46,7 +46,6 @@ class MSD_Balanced_Dataset(Dataset):
             audio = pad
         random_idx = random.randint(0, audio.shape[-1]-self.n_samples)
         audio_tensor = torch.from_numpy(np.array(audio[random_idx:random_idx+self.n_samples]).astype('float32'))
-        audio_tensor = torch.randn(16000*10)
         return audio_tensor
 
     def __getitem__(self, index):
