@@ -9,7 +9,7 @@ setup(
         'numpy',
         'pandas',
         'einops',
-        'sklearn',
+        'scikit-learn',
         'wandb',
         'jupyter',
         'matplotlib',
