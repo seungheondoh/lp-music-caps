@@ -10,6 +10,11 @@ This is a implementation of [LP-MusicCaps: LLM-Based Pseudo Music Captioning](ht
 > To appear ISMIR 2023   
 
 
+## News
+
+- **23.12.12** Our paper has been invited to the TISMIR journal. Stay tuned for the extended version
+- **23.11.10** Our paper has been nominated for the ISMIR Best Paper Award (5/104)
+
 ## TL;DR
 
 
@@ -44,7 +49,7 @@ To run this project locally, follow the steps below:
 ## Quick Start: Tag to Caption
 
 ```bash
-cd lmpc/llm_captioning
+cd lpmc/llm_captioning
 python run.py --prompt {writing, summary, paraphrase, attribute_prediction} --tags <music_tags>
 ```
 
@@ -68,7 +73,7 @@ cd demo
 python app.py
 
 # or
-cd lmpc/music_captioning
+cd lpmc/music_captioning
 wget https://huggingface.co/seungheondoh/lp-music-caps/resolve/main/transfer.pth -O exp/transfer/lp_music_caps
 python captioning.py --audio_path ../../dataset/samples/orchestra.wav
 ```
